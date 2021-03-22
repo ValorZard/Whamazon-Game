@@ -6,9 +6,9 @@ extends StaticBody
 # var b = "text"
 class_name Obstacle2D
 
-var damage : int = 1
+export var damage : int = 1
 
-var health : int = 3
+export var health : int = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Obstacles")

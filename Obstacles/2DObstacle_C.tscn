@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Images/mum.png" type="Texture" id=1]
+[ext_resource path="res://Obstacles/2DObstacle.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 5.0
+height = 0.1
+
+[node name="2DObstacle" type="StaticBody"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource( 1 )
