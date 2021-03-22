@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Mesh/SM_Car_Amazon_01.fbx" type="PackedScene" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/HUD/HUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
@@ -19,3 +20,5 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.907345, 0.420387, 0, -0.420387, 0.907345, 0, 18.5187, 23.2822 )
 fov = 68.8377
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]

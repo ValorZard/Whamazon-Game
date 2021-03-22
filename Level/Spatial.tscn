@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Castle/Castle OBJ.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Mesh/SM_Car_Amazon_01.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Mesh/SM_Floor_4x4_01.fbx" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Mesh/SM_GaurdRail_01.fbx" type="PackedScene" id=6]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="ProceduralSky" id=2]
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+ambient_light_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+tonemap_mode = 2
+auto_exposure_enabled = true
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, -0.00953102 )
+
+[node name="Castle OBJ" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+visible = false
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="SM_Car_Amazon_01" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95107, 0.728724, 4.38993 )
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
+shape = SubResource( 1 )
+
+[node name="SM_Floor_4x4_01" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_02" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_03" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_04" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_05" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 15.9905 )
+
+[node name="SM_Floor_4x4_06" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_07" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_08" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_09" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_10" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 15.9905 )
+
+[node name="SM_Floor_4x4_11" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_12" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_13" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_14" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_15" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 15.9905 )
+
+[node name="SM_Floor_4x4_16" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_17" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_18" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_19" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_20" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 15.9905 )
+
+[node name="SM_Floor_4x4_21" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_22" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_23" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_24" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_25" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 15.9905 )
+
+[node name="SM_Floor_4x4_26" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, -0.00953102 )
+
+[node name="SM_Floor_4x4_27" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 3.99047 )
+
+[node name="SM_Floor_4x4_28" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 7.99047 )
+
+[node name="SM_Floor_4x4_29" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 11.9905 )
+
+[node name="SM_Floor_4x4_30" parent="Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 15.9905 )
+
+[node name="Gaurd Rail" type="Node" parent="."]
+
+[node name="SM_GaurdRail_01" parent="Gaurd Rail" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, -0.172199 )
+
+[node name="SM_GaurdRail_02" parent="Gaurd Rail" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 3.8278 )
+
+[node name="SM_GaurdRail_03" parent="Gaurd Rail" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 7.8278 )
+
+[node name="SM_GaurdRail_04" parent="Gaurd Rail" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 11.8278 )
+
+[node name="SM_GaurdRail_05" parent="Gaurd Rail" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 15.8278 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="2DObstacle" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, 131.817 )
+
+[node name="2DObstacle3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.417, 2, 59.089 )
+
+[node name="2DObstacle2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, 38.004 )
+
+[node name="2DObstacle4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, 110.434 )

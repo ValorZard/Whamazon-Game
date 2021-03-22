@@ -5,6 +5,8 @@ extends KinematicBody
 # var a = 2
 # var b = "text"
 
+class_name Player
+
 # horizontal movement variables
 var linear_accel : float = 1
 var linear_decel : float = 0.1
@@ -26,9 +28,15 @@ var turn_accel : float = 0.01
 var turn_decel : float = 0.5
 var max_turn : float = 0.03
 
+# durability variables
+var health : int = 10
+
+# extra data stuff
+var spawn_data : Transform
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	spawn_data = get_global_transform()
 
 func turn_car():
 	
@@ -85,10 +93,38 @@ func update_gravity():
 		linear_velocity.y = 0
 
 func update_movement():
-	move_and_slide(linear_velocity)
+	linear_velocity = move_and_slide(linear_velocity)
+	
+	# Check for all collisions
+	for i in range(get_slide_count() - 1):
+		var collision = get_slide_collision(i)
+		var collider = collision.collider
+		
+		if collider.is_in_group("Obstacles"):
+			collider.do_damage(self)
+
+# when hitting an enemy, we want a bit of knockback
+func apply_knockback(strength : int):
+	if(horizontal_speed <= 0):
+		horizontal_speed += strength
+	else:
+		horizontal_speed -= strength
+
+func update_ui():
+	$HUD/CanvasLayer/SpeedLabel.text = "Speed:" + str(-horizontal_speed)
+	$HUD/CanvasLayer/HealthLabel.text = "Health:" + str(health)
+
+func check_if_dead():
+	if health <= 0:
+		respawn()
+
+func respawn():
+	transform = spawn_data
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	check_if_dead()
 	
 	turn_car()
 	
@@ -97,6 +133,8 @@ func _physics_process(delta):
 	update_gravity()
 	
 	update_movement()
+	
+	update_ui()
 	
 	#print(self.transform)
 	pass
