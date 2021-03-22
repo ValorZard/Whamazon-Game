@@ -5,13 +5,21 @@ extends KinematicBody
 # var a = 2
 # var b = "text"
 
+# horizontal movement variables
 var linear_accel : float = 1
 var linear_decel : float = 0.1
-var max_speed : int = 30
+var max_horizontal_speed : int = 30
 
-var speed : float = 0
+var horizontal_speed : float = 0
+
+# vertical movement variables
+var gravity : float = 3
+var terminal_velocity : float = 50 # max speed of falling
+
+# main velocity
 var linear_velocity : Vector3 = Vector3()
 
+# turning variables
 var turn_force : float = 0.0
 
 var turn_accel : float = 0.01
@@ -50,23 +58,33 @@ func drive_car():
 	if (Input.is_action_pressed("player_forward") or Input.is_action_pressed("player_back")):
 		# Drive forward
 		if (Input.is_action_pressed("player_forward")):
-			speed -= linear_accel
+			horizontal_speed -= linear_accel
 	
 		# Brake / reverse
 		if (Input.is_action_pressed("player_back")):
-			speed += linear_accel
+			horizontal_speed += linear_accel
 		
-		speed = clamp(speed, -max_speed, max_speed)
+		horizontal_speed = clamp(horizontal_speed, -max_horizontal_speed, max_horizontal_speed)
 	else:
 		# linear interpolation
 		# The basic idea is that you want to transition from A to B. 
 		# A value t, represents the states in-between.
 		# interpolation = A + (B - A) * t
-		speed = speed + (0 - speed) * linear_decel
+		horizontal_speed = horizontal_speed + (0 - horizontal_speed) * linear_decel
 	
 	
-	linear_velocity = forward_vector * speed
-	
+	linear_velocity = forward_vector * horizontal_speed
+
+func update_gravity():
+	if not is_on_floor():
+		if(linear_velocity.y > -terminal_velocity):
+			linear_velocity.y -= gravity
+		elif(linear_velocity.y < -terminal_velocity):
+			linear_velocity.y = -terminal_velocity
+	else:
+		linear_velocity.y = 0
+
+func update_movement():
 	move_and_slide(linear_velocity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,6 +93,10 @@ func _physics_process(delta):
 	turn_car()
 	
 	drive_car()
+	
+	update_gravity()
+	
+	update_movement()
 	
 	#print(self.transform)
 	pass
