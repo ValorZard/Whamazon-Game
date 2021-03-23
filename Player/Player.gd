@@ -110,10 +110,6 @@ func apply_knockback(strength : int):
 	else:
 		horizontal_speed -= strength
 
-func update_ui():
-	$HUD/CanvasLayer/SpeedLabel.text = "Speed:" + str(-horizontal_speed)
-	$HUD/CanvasLayer/HealthLabel.text = "Health:" + str(health)
-
 func check_if_dead():
 	if health <= 0:
 		respawn()
@@ -133,8 +129,6 @@ func _physics_process(delta):
 	update_gravity()
 	
 	update_movement()
-	
-	update_ui()
 	
 	#print(self.transform)
 	pass
