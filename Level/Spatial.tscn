@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Castle/Castle OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Obstacles/2DObstacle_B.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Obstacles/2DObstacle_C.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Obstacles/2DObstacle_A.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Mesh/SM_Sign_Overhang_01.fbx" type="PackedScene" id=10]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -50,7 +51,7 @@ transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
 shape = SubResource( 1 )
 
 [node name="SM_Floor_4x4_01" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, -0.00953102 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0095637, 9.53674e-07, -0.00986786 )
 
 [node name="SM_Floor_4x4_02" parent="Floor" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 3.99047 )
@@ -156,9 +157,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 11.8278 )
 [node name="SM_GaurdRail_05" parent="Gaurd Rail" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78138, -0.0218058, 15.8278 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
@@ -179,3 +177,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -6.717 )
 
 [node name="2DObstacle" parent="2DObstacle5" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3974, 2, 143.639 )
+
+[node name="SM_Sign_Overhang_01" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0159, 0.999999, -0.990469 )
