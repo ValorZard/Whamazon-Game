@@ -42,6 +42,10 @@ config/name="Vurger"
 run/main_scene="res://Level/Spatial.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
+
 [global]
 
 default=false
