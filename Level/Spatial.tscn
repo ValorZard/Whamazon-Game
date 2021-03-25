@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Castle/Castle OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Mesh/SM_Car_Amazon_01.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Mesh/SM_Floor_Warehouse_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Mesh/SM_GaurdRail_01.fbx" type="PackedScene" id=6]
 [ext_resource path="res://Obstacles/2DObstacle_B.tscn" type="PackedScene" id=7]
@@ -13,8 +14,9 @@
 [ext_resource path="res://Assets/Mesh/SM_Warehouse_Open_01.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Mesh/SM_Pole_01.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Mesh/SM_Warehouse_Close_02.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/Mesh/SM_Floor_Warehouse_01.fbx" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Mesh/SM_Warehouse_Cieling_01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Mesh/SM_Crate_01.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Mesh/SM_Warehouse_Wall_01.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.270073, 0.423358, 0.722628, 0.875912, 1 )
@@ -24,7 +26,7 @@ colors = PoolColorArray( 0, 0, 0, 1, 0.185132, 0.197704, 0.331425, 1, 0.519531, 
 gradient = SubResource( 1 )
 
 [sub_resource type="ProceduralSky" id=3]
-sky_top_color = Color( 0.403922, 0.498039, 0.54902, 1 )
+sky_top_color = Color( 0.713726, 0.760784, 0.803922, 1 )
 sky_horizon_color = Color( 0.552941, 0.635294, 0.701961, 1 )
 sky_energy = 0.34
 
@@ -45,6 +47,10 @@ auto_exposure_speed = 29.83
 adjustment_color_correction = SubResource( 2 )
 
 [sub_resource type="BoxShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="BoxShape" id=7]
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, -0.00953102 )
@@ -68,20 +74,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 10.3544 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.068, 2, 125.616 )
 
 [node name="Floor" type="StaticBody" parent="."]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, -1, 3, -82 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
-transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
+transform = Transform( 40.8, 0, 0, 0, 1, 0, 0, 0, 52, -1.2, -3, -1.1 )
 shape = SubResource( 5 )
 
-[node name="Floor2" type="StaticBody" parent="."]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -200 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Floor2"]
-transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
-shape = SubResource( 5 )
-
-[node name="Gaurd Rail" type="Node" parent="."]
+[node name="Gaurd Rail" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17 )
 
 [node name="SM_GaurdRail_01" parent="Gaurd Rail" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7814, -0.0218058, -19.1722 )
@@ -97,6 +97,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7814, -0.0218058, -7.1722 )
 
 [node name="SM_GaurdRail_05" parent="Gaurd Rail" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7814, -0.0218058, -3.1722 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Gaurd Rail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 12, 12, 1, -10 )
+shape = SubResource( 6 )
 
 [node name="2DObstacle" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, 131.817 )
@@ -216,175 +220,385 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 2, 1 )
 [node name="SM_Pole_24" parent="Warehouse Poles" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 2, 1 )
 
-[node name="Warehouse Floor" type="Node" parent="."]
+[node name="Warehouse Floor" type="StaticBody" parent="."]
 
-[node name="SM_Floor_Warehouse_01" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2 )
+[node name="SM_Floor_Warehouse_01" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 2 )
 
-[node name="SM_Floor_Warehouse_02" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 2 )
+[node name="SM_Floor_Warehouse_02" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 2 )
 
-[node name="SM_Floor_Warehouse_03" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 2 )
+[node name="SM_Floor_Warehouse_03" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 2 )
 
-[node name="SM_Floor_Warehouse_04" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 2 )
+[node name="SM_Floor_Warehouse_04" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 2 )
 
-[node name="SM_Floor_Warehouse_05" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 2 )
+[node name="SM_Floor_Warehouse_05" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 2 )
 
-[node name="SM_Floor_Warehouse_06" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 2 )
+[node name="SM_Floor_Warehouse_06" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2 )
 
-[node name="SM_Floor_Warehouse_07" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 2, 2 )
+[node name="SM_Floor_Warehouse_07" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 2 )
 
-[node name="SM_Floor_Warehouse_09" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 2 )
+[node name="SM_Floor_Warehouse_11" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 2 )
 
-[node name="SM_Floor_Warehouse_10" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 2, 2 )
+[node name="SM_Floor_Warehouse_12" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 2 )
 
-[node name="SM_Floor_Warehouse_11" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, 2 )
+[node name="SM_Floor_Warehouse_08" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 2 )
 
-[node name="SM_Floor_Warehouse_12" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 2 )
+[node name="SM_Floor_Warehouse_09" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 2 )
 
-[node name="SM_Floor_Warehouse_13" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 2 )
+[node name="SM_Floor_Warehouse_10" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 2 )
 
-[node name="SM_Floor_Warehouse_08" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10 )
+[node name="SM_Floor_Warehouse_13" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 10 )
 
-[node name="SM_Floor_Warehouse_14" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 10 )
+[node name="SM_Floor_Warehouse_14" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 10 )
 
-[node name="SM_Floor_Warehouse_15" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 10 )
+[node name="SM_Floor_Warehouse_15" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 10 )
 
-[node name="SM_Floor_Warehouse_16" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 10 )
+[node name="SM_Floor_Warehouse_16" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 10 )
 
-[node name="SM_Floor_Warehouse_17" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 10 )
+[node name="SM_Floor_Warehouse_17" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 10 )
 
-[node name="SM_Floor_Warehouse_18" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 10 )
+[node name="SM_Floor_Warehouse_18" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 10 )
 
-[node name="SM_Floor_Warehouse_19" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 2, 10 )
+[node name="SM_Floor_Warehouse_19" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 10 )
 
-[node name="SM_Floor_Warehouse_20" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 10 )
+[node name="SM_Floor_Warehouse_20" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 10 )
 
-[node name="SM_Floor_Warehouse_21" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 2, 10 )
+[node name="SM_Floor_Warehouse_21" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 10 )
 
-[node name="SM_Floor_Warehouse_22" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, 10 )
+[node name="SM_Floor_Warehouse_22" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 10 )
 
-[node name="SM_Floor_Warehouse_23" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 10 )
+[node name="SM_Floor_Warehouse_23" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 10 )
 
-[node name="SM_Floor_Warehouse_24" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 10 )
+[node name="SM_Floor_Warehouse_24" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 10 )
 
-[node name="SM_Floor_Warehouse_25" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 18 )
+[node name="SM_Floor_Warehouse_25" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 18 )
 
-[node name="SM_Floor_Warehouse_26" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 18 )
+[node name="SM_Floor_Warehouse_26" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 18 )
 
-[node name="SM_Floor_Warehouse_27" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 18 )
+[node name="SM_Floor_Warehouse_27" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 18 )
 
-[node name="SM_Floor_Warehouse_28" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 18 )
+[node name="SM_Floor_Warehouse_28" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 18 )
 
-[node name="SM_Floor_Warehouse_29" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 18 )
+[node name="SM_Floor_Warehouse_29" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 18 )
 
-[node name="SM_Floor_Warehouse_30" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 18 )
+[node name="SM_Floor_Warehouse_30" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 18 )
 
-[node name="SM_Floor_Warehouse_31" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 2, 18 )
+[node name="SM_Floor_Warehouse_31" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 18 )
 
-[node name="SM_Floor_Warehouse_32" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 18 )
+[node name="SM_Floor_Warehouse_32" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 18 )
 
-[node name="SM_Floor_Warehouse_33" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 2, 18 )
+[node name="SM_Floor_Warehouse_33" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 18 )
 
-[node name="SM_Floor_Warehouse_34" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, 18 )
+[node name="SM_Floor_Warehouse_34" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 18 )
 
-[node name="SM_Floor_Warehouse_35" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 18 )
+[node name="SM_Floor_Warehouse_35" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 18 )
 
-[node name="SM_Floor_Warehouse_36" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 18 )
+[node name="SM_Floor_Warehouse_36" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 18 )
 
-[node name="SM_Floor_Warehouse_37" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 26 )
+[node name="SM_Floor_Warehouse_37" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 26 )
 
-[node name="SM_Floor_Warehouse_38" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 26 )
+[node name="SM_Floor_Warehouse_38" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 26 )
 
-[node name="SM_Floor_Warehouse_39" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 26 )
+[node name="SM_Floor_Warehouse_39" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 26 )
 
-[node name="SM_Floor_Warehouse_40" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 26 )
+[node name="SM_Floor_Warehouse_40" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 26 )
 
-[node name="SM_Floor_Warehouse_41" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 26 )
+[node name="SM_Floor_Warehouse_41" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 26 )
 
-[node name="SM_Floor_Warehouse_42" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 26 )
+[node name="SM_Floor_Warehouse_42" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 26 )
 
-[node name="SM_Floor_Warehouse_43" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 2, 26 )
+[node name="SM_Floor_Warehouse_43" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 26 )
 
-[node name="SM_Floor_Warehouse_44" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 26 )
+[node name="SM_Floor_Warehouse_44" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 26 )
 
-[node name="SM_Floor_Warehouse_45" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 2, 26 )
+[node name="SM_Floor_Warehouse_45" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 26 )
 
-[node name="SM_Floor_Warehouse_46" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, 26 )
+[node name="SM_Floor_Warehouse_46" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 26 )
 
-[node name="SM_Floor_Warehouse_47" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 26 )
+[node name="SM_Floor_Warehouse_47" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 26 )
 
-[node name="SM_Floor_Warehouse_48" parent="Warehouse Floor" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 26 )
+[node name="SM_Floor_Warehouse_48" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 26 )
 
-[node name="SM_Warehouse_Open_01" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01589, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_49" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 34 )
 
-[node name="SM_Warehouse_Close_02" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98411, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_50" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 34 )
 
-[node name="SM_Warehouse_Close_03" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9841, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_51" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 34 )
 
-[node name="SM_Warehouse_Close_04" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9841, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_52" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 34 )
 
-[node name="SM_Warehouse_Close_05" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9841, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_53" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 34 )
 
-[node name="SM_Warehouse_Close_06" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.0159, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_54" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 34 )
 
-[node name="SM_Warehouse_Close_07" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0159, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_55" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 34 )
 
-[node name="SM_Warehouse_Close_08" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0159, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_56" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 34 )
 
-[node name="SM_Warehouse_Close_09" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0159, 2, 3.00953 )
+[node name="SM_Floor_Warehouse_57" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 34 )
+
+[node name="SM_Floor_Warehouse_58" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 34 )
+
+[node name="SM_Floor_Warehouse_59" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 34 )
+
+[node name="SM_Floor_Warehouse_60" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 34 )
+
+[node name="SM_Floor_Warehouse_61" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 42 )
+
+[node name="SM_Floor_Warehouse_62" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2, 42 )
+
+[node name="SM_Floor_Warehouse_63" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, 42 )
+
+[node name="SM_Floor_Warehouse_64" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 42 )
+
+[node name="SM_Floor_Warehouse_65" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 42 )
+
+[node name="SM_Floor_Warehouse_66" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 42 )
+
+[node name="SM_Floor_Warehouse_67" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 42 )
+
+[node name="SM_Floor_Warehouse_68" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 2, 42 )
+
+[node name="SM_Floor_Warehouse_69" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 2, 42 )
+
+[node name="SM_Floor_Warehouse_70" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, 42 )
+
+[node name="SM_Floor_Warehouse_71" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 42 )
+
+[node name="SM_Floor_Warehouse_72" parent="Warehouse Floor" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 42 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Warehouse Floor"]
+transform = Transform( 245.7, 0, 0, 0, 5.39, 0, 0, 0, 151.5, 3, 1, 29 )
+shape = SubResource( 7 )
+
+[node name="Warehouse WallsCieling" type="Node" parent="."]
+
+[node name="SM_Warehouse_Open_01" parent="Warehouse WallsCieling" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 3 )
+
+[node name="SM_Warehouse_Close_02" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 3 )
+
+[node name="SM_Warehouse_Close_03" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 3 )
+
+[node name="SM_Warehouse_Close_04" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2, 3 )
+
+[node name="SM_Warehouse_Close_05" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 3 )
+
+[node name="SM_Warehouse_Close_06" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 2, 3 )
+
+[node name="SM_Warehouse_Close_07" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 3 )
+
+[node name="SM_Warehouse_Close_08" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 3 )
+
+[node name="SM_Warehouse_Close_09" parent="Warehouse WallsCieling" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 3 )
+
+[node name="SM_Warehouse_Wall_01" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 8 )
+
+[node name="SM_Warehouse_Wall_02" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 18 )
+
+[node name="SM_Warehouse_Wall_03" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 28 )
+
+[node name="SM_Warehouse_Wall_04" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 38 )
+
+[node name="SM_Warehouse_Wall_05" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 32 )
+
+[node name="SM_Warehouse_Wall_06" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 22 )
+
+[node name="SM_Warehouse_Wall_07" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 12 )
+
+[node name="SM_Warehouse_Wall_08" parent="Warehouse WallsCieling" instance=ExtResource( 17 )]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 2 )
+
+[node name="SM_Warehouse_Cieling_01" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_02" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_07" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_08" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_03" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_05" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_04" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_09" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_10" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 5, 11 )
+
+[node name="SM_Warehouse_Cieling_06" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_11" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_12" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_13" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_14" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_15" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_16" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_17" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_18" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 5, 19 )
+
+[node name="SM_Warehouse_Cieling_19" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_20" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_21" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_22" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_23" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_24" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_25" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_26" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_27" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 5, 27 )
+
+[node name="SM_Warehouse_Cieling_28" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_29" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_30" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_31" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_32" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_33" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_34" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_35" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 5, 35 )
+
+[node name="SM_Warehouse_Cieling_36" parent="Warehouse WallsCieling" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 5, 35 )
