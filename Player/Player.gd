@@ -30,6 +30,7 @@ var max_turn : float = 0.03
 
 # durability variables
 var health : int = 10
+var max_health : int = 10
 
 # extra data stuff
 var spawn_data : Transform
@@ -116,6 +117,7 @@ func check_if_dead():
 
 func respawn():
 	transform = spawn_data
+	health = max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

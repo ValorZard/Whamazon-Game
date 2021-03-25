@@ -18,7 +18,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.767624, 0.640901, 0, -0.640901, 0.767624, 0, 7.5187, 7.2822 )
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 7.5, 7 )
 fov = 68.8377
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
