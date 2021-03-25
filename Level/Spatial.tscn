@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Castle/Castle OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Mesh/SM_Car_Amazon_01.fbx" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Mesh/SM_Floor_4x4_01.fbx" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Mesh/SM_GaurdRail_01.fbx" type="PackedScene" id=6]
 [ext_resource path="res://Obstacles/2DObstacle_B.tscn" type="PackedScene" id=7]
@@ -75,192 +74,12 @@ transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
 shape = SubResource( 5 )
 
-[node name="SM_Floor_4x4_01" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0095637, 9.53674e-07, -0.00986786 )
-
-[node name="SM_Floor_4x4_02" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_03" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_04" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_05" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_06" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_07" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_08" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_09" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_10" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_11" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_12" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_13" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_14" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_15" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_16" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_17" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_18" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_19" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_20" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_21" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_22" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_23" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_24" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_25" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_26" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_27" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_28" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_29" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_30" parent="Floor" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 15.9905 )
-
 [node name="Floor2" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -200 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor2"]
 transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 10, -2, -1, 8 )
 shape = SubResource( 5 )
-
-[node name="SM_Floor_4x4_01" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0095637, 9.53674e-07, -0.00986786 )
-
-[node name="SM_Floor_4x4_02" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_03" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_04" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_05" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015892, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_06" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_07" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_08" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_09" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_10" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98411, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_11" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_12" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_13" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_14" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_15" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98411, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_16" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_17" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_18" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_19" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_20" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0159, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_21" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_22" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_23" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_24" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_25" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01589, 9.53674e-07, 15.9905 )
-
-[node name="SM_Floor_4x4_26" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, -0.00953102 )
-
-[node name="SM_Floor_4x4_27" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 3.99047 )
-
-[node name="SM_Floor_4x4_28" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 7.99047 )
-
-[node name="SM_Floor_4x4_29" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 11.9905 )
-
-[node name="SM_Floor_4x4_30" parent="Floor2" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01589, 9.53674e-07, 15.9905 )
 
 [node name="Gaurd Rail" type="Node" parent="."]
 
