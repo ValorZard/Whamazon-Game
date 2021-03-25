@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Castle/Castle OBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://Obstacles/2DObstacle_C.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Obstacles/2DObstacle_A.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Mesh/SM_Sign_Overhang_01.fbx" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Mesh/SM_Crate_01.fbx" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Mesh/SM_CrateShelf_01.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Mesh/SM_Warehouse_Open_01.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Mesh/SM_Pole_01.fbx" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Mesh/SM_Warehouse_Close_02.fbx" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Mesh/SM_Floor_Warehouse_01.fbx" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Mesh/SM_Crate_01.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.270073, 0.423358, 0.722628, 0.875912, 1 )
@@ -313,41 +314,14 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.9492
 
 [node name="Warehouse Crates" type="Node" parent="."]
 
-[node name="SM_Crate_01" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -1.99989, 2.2, 4.99047 )
+[node name="SM_CrateShelf_01" parent="Warehouse Crates" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.97341, 5 )
 
-[node name="SM_Crate_02" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -1.99989, 2.2, 2.99047 )
+[node name="SM_CrateShelf_02" parent="Warehouse Crates" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.667, 2.97341, 5 )
 
-[node name="SM_Crate_03" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.9999, 2.2, 4.99047 )
-
-[node name="SM_Crate_04" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.9999, 2.2, 2.99047 )
-
-[node name="SM_Crate_09" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -8.88771, 2.2, 4.99047 )
-
-[node name="SM_Crate_10" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -8.88771, 2.2, 2.99047 )
-
-[node name="SM_Crate_12" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -6.81764, 2.2, 2.99047 )
-
-[node name="SM_Crate_07" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.9999, 2.2, 6.91686 )
-
-[node name="SM_Crate_08" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -8.92169, 2.2, 6.88891 )
-
-[node name="SM_Crate_05" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.9999, 3.93407, 4.99047 )
-
-[node name="SM_Crate_06" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -10.9999, 3.93407, 2.99047 )
-
-[node name="SM_Crate_13" parent="Warehouse Crates" instance=ExtResource( 11 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -8.82672, 3.93407, 2.99047 )
+[node name="SM_Crate_11" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0422, 2.00894, 6.92368 )
 
 [node name="Warehouse Poles" type="Node" parent="."]
 
