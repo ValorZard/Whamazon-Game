@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/dogica.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Player/HUD/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Overlay/hp_bar_bg.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Overlay/hp_bar_fill.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Overlay/hp_bar_outline.png" type="Texture" id=5]
+[ext_resource path="res://Player/HUD/TextDisplay.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -14,23 +18,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="SpeedLabel" type="Label" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-text = "PogChamp"
+[node name="Overlay" type="MarginContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthLabel" type="Label" parent="CanvasLayer"]
-margin_top = 21.0224
+[node name="Tween" type="Tween" parent="Overlay"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay"]
+margin_right = 491.0
+margin_bottom = 71.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/HBoxContainer"]
+margin_right = 487.0
+margin_bottom = 71.0
+
+[node name="Health" type="HBoxContainer" parent="Overlay/HBoxContainer/VBoxContainer"]
+margin_right = 487.0
+margin_bottom = 55.0
+
+[node name="HealthLabel" type="Label" parent="Overlay/HBoxContainer/VBoxContainer/Health"]
+margin_top = 21.0
 margin_right = 128.0
-margin_bottom = 35.0224
+margin_bottom = 33.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
@@ -38,3 +52,53 @@ text = "PogChamp"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Gauge" type="TextureProgress" parent="Overlay/HBoxContainer/VBoxContainer/Health"]
+margin_left = 132.0
+margin_right = 487.0
+margin_bottom = 55.0
+texture_over = ExtResource( 5 )
+
+[node name="Outline" type="TextureProgress" parent="Overlay/HBoxContainer/VBoxContainer/Health/Gauge"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 349.0
+margin_bottom = 49.0
+texture_under = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureProgress" parent="Overlay/HBoxContainer/VBoxContainer/Health/Gauge"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 346.0
+margin_bottom = 48.0
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedLabel" type="Label" parent="Overlay/HBoxContainer/VBoxContainer"]
+margin_top = 59.0
+margin_right = 487.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "PogChamp"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextDisplay" type="RichTextLabel" parent="Overlay/HBoxContainer"]
+margin_left = 491.0
+margin_right = 491.0
+margin_bottom = 71.0
+script = ExtResource( 6 )
+
+[node name="ms" type="Timer" parent="Overlay/HBoxContainer/TextDisplay"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Overlay/HBoxContainer/TextDisplay/ms" to="Overlay/HBoxContainer/TextDisplay/ms" method="_on_ms_timeout"]
