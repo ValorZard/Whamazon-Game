@@ -1216,19 +1216,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.8876, 4, -144.92 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -110.674 )
 
 [node name="SM_Car_Amazon_01" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -4 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -4 )
 
 [node name="SM_Car_Amazon_02" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -7 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -7 )
 
 [node name="SM_Car_Amazon_03" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -10 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -10 )
 
 [node name="SM_Car_Amazon_04" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -13 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -13 )
 
 [node name="SM_Car_Amazon_05" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0, -16 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -16 )
 
 [node name="Warehouse Crates" type="Node" parent="."]
 

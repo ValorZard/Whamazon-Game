@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Mesh/SM_Warehouse_Open_01.fbx" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Materials/M_Glass_01.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/M_Grey_03.tres" type="Material" id=3]
 [ext_resource path="res://Assets/Materials/M_Grey_01.tres" type="Material" id=4]
 [ext_resource path="res://Assets/Materials/M_Grey_02.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Materials/M_Grey_04.tres" type="Material" id=6]
 
 [node name="SM_Warehouse_Open_01" instance=ExtResource( 1 )]
 
@@ -16,3 +17,4 @@ material/3 = ExtResource( 2 )
 material/4 = ExtResource( 3 )
 material/5 = ExtResource( 3 )
 material/6 = ExtResource( 3 )
+material/7 = ExtResource( 6 )
