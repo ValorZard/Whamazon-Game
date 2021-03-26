@@ -1239,7 +1239,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.97341, 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.667, 2.97341, 5 )
 
 [node name="SM_Crate_11" parent="Warehouse Crates" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0422, 2.00894, 6.92368 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85946, 2.00894, 6.92368 )
+
+[node name="SM_Crate_13" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85946, 2.00894, 9.37574 )
+
+[node name="SM_Crate_14" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85946, 4.18412, 6.92368 )
+
+[node name="SM_Crate_15" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85946, 4.18412, 9.37574 )
+
+[node name="SM_Crate_16" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5417, 2.00894, 6.92368 )
+
+[node name="SM_Crate_17" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5417, 2.00894, 9.37574 )
+
+[node name="SM_Crate_18" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5417, 4.18412, 6.92368 )
+
+[node name="SM_Crate_12" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88754, 2.00894, 4.80342 )
+
+[node name="SM_Crate_19" parent="Warehouse Crates" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86667, 2.00894, 4.0275 )
 
 [node name="Warehouse Poles" type="Node" parent="."]
 
