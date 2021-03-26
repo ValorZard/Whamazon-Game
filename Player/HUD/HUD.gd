@@ -3,7 +3,7 @@ extends Control
 onready var health_label = $Overlay/HBoxContainer/VBoxContainer/Health/HealthLabel
 onready var bp_bar = $Overlay/HBoxContainer3/VBoxContainer/BPGaugeSped/Node2D/BPFill
 onready var tween = $Overlay/Tween
-onready var speed_label = $Overlay/HBoxContainer/VBoxContainer/SpeedLabel
+onready var speed_label = $Overlay/HBoxContainer3/SpeedLabel
 onready var timer_label = $Overlay/HBoxContainer2/VBoxContainer/Timer
 
 
