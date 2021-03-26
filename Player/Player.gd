@@ -1,5 +1,6 @@
 extends KinematicBody
 
+signal health_changed(new_health)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -44,8 +45,8 @@ export var drift_turn_decel : float = 0.1
 export var drift_max_turn : float = 0.15
 
 # durability variables
-export var health : int = 10
-export var max_health : int = 10
+export var health : int = 100
+export var max_health : int = 100
 
 # extra data stuff
 var spawn_data : Transform
@@ -53,6 +54,7 @@ var spawn_data : Transform
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_data = get_global_transform()
+	emit_signal('health_changed', health)
 
 func check_if_drifting():
 	is_drifting = Input.is_action_pressed("drift")
@@ -145,7 +147,10 @@ func update_movement():
 		var collider = collision.collider
 		
 		if collider.is_in_group("Obstacles"):
-			collider.do_damage(self)
+			health -= collider.damage
+			collider.health -= 10
+			apply_knockback(70)
+			emit_signal('health_changed', health)
 
 # when hitting an enemy, we want a bit of knockback
 func apply_knockback(strength : int):
@@ -161,6 +166,7 @@ func check_if_dead():
 func respawn():
 	transform = spawn_data
 	health = max_health
+	emit_signal('health_changed', health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

@@ -6,17 +6,12 @@ extends StaticBody
 # var b = "text"
 class_name Obstacle2D
 
-export var damage : int = 1
+export var damage : int = 10
 
-export var health : int = 3
+export var health : int = 30
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Obstacles")
-
-func do_damage(player : Player):
-	player.health -= damage
-	health -= 1
-	player.apply_knockback(70)
 
 func check_if_dead():
 	if health <= 0:
