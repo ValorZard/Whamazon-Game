@@ -7,30 +7,45 @@ extends KinematicBody
 
 class_name Player
 
-# horizontal movement variables
-var linear_accel : float = 1
-var linear_decel : float = 0.1
-var max_horizontal_speed : int = 30
+# game state stuff
+var is_drifting : bool = false
 
-var horizontal_speed : float = 0
+# horizontal movement variables
+export var linear_accel : float = 1
+export var linear_decel : float = 0.1
+export var max_horizontal_speed : int = 30
+
+# main horizontal movement var
+export var horizontal_speed : float = 0
+
+# drifting specific speed
+export var drift_linear_accel : float = 0.75
+export var drift_linear_decel : float = 0.1
+export var drift_max_horizontal_speed : int = 25
 
 # vertical movement variables
-var gravity : float = 3
-var terminal_velocity : float = 50 # max speed of falling
+export var gravity : float = 3
+export var terminal_velocity : float = 50 # max speed of falling
 
 # main velocity
-var linear_velocity : Vector3 = Vector3()
+export var linear_velocity : Vector3 = Vector3()
 
 # turning variables
-var turn_force : float = 0.0
+export var turn_force : float = 0.0
 
-var turn_accel : float = 0.01
-var turn_decel : float = 0.5
-var max_turn : float = 0.03
+export var turn_accel : float = 0.01
+export var turn_decel : float = 0.5
+export var max_turn : float = 0.03
+
+# drifting specific turning
+export var drift_turn_accel : float = 0.05
+export var drift_turn_decel : float = 0.1
+
+export var drift_max_turn : float = 0.15
 
 # durability variables
-var health : int = 10
-var max_health : int = 10
+export var health : int = 10
+export var max_health : int = 10
 
 # extra data stuff
 var spawn_data : Transform
@@ -39,22 +54,37 @@ var spawn_data : Transform
 func _ready():
 	spawn_data = get_global_transform()
 
+func check_if_drifting():
+	is_drifting = Input.is_action_pressed("drift")
+
 func turn_car():
+	var accel : float = 0
+	var decel : float = 0
+	var current_max_turn : float = 0
+	
+	if(is_drifting):
+		accel = drift_turn_accel
+		decel = drift_turn_decel
+		current_max_turn = drift_max_turn
+	else:
+		accel = turn_accel
+		decel = turn_decel
+		current_max_turn = max_turn
 	
 	# Steering left and right
 	if(Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right")):
 		if (Input.is_action_pressed("player_left")):
-			turn_force += turn_accel
+			turn_force += accel
 		if (Input.is_action_pressed("player_right")):
-			turn_force -= turn_accel
+			turn_force -= accel
 		
-		turn_force = clamp(turn_force, -max_turn, max_turn)
+		turn_force = clamp(turn_force, -current_max_turn, current_max_turn)
 	else:
 		# linear interpolation
 		# The basic idea is that you want to transition from A to B. 
 		# A value t, represents the states in-between.
 		# interpolation = A + (B - A) * t
-		turn_force = turn_force + (0 - turn_force) * turn_decel
+		turn_force = turn_force + (0 - turn_force) * decel
 	# Rotate around y-axis
 	rotate(get_global_transform().basis.y, turn_force) 
 	
@@ -62,24 +92,37 @@ func turn_car():
 
 func drive_car():
 	var forward_vector = get_global_transform().basis.z	
-
+	
+	var accel : float = 0
+	var decel : float = 0
+	var max_speed : float = 0
+	
+	if(is_drifting):
+		accel = drift_linear_accel
+		decel = drift_linear_decel
+		max_speed = drift_max_horizontal_speed
+	else:
+		accel = linear_accel
+		decel = linear_decel
+		max_speed = max_horizontal_speed
+	
 	# if is driving
 	if (Input.is_action_pressed("player_forward") or Input.is_action_pressed("player_back")):
 		# Drive forward
 		if (Input.is_action_pressed("player_forward")):
-			horizontal_speed -= linear_accel
+			horizontal_speed -= accel
 	
 		# Brake / reverse
 		if (Input.is_action_pressed("player_back")):
-			horizontal_speed += linear_accel
+			horizontal_speed += accel
 		
-		horizontal_speed = clamp(horizontal_speed, -max_horizontal_speed, max_horizontal_speed)
+		horizontal_speed = clamp(horizontal_speed, -max_speed, max_speed)
 	else:
 		# linear interpolation
 		# The basic idea is that you want to transition from A to B. 
 		# A value t, represents the states in-between.
 		# interpolation = A + (B - A) * t
-		horizontal_speed = horizontal_speed + (0 - horizontal_speed) * linear_decel
+		horizontal_speed = horizontal_speed + (0 - horizontal_speed) * decel
 	
 	
 	linear_velocity = forward_vector * horizontal_speed
@@ -123,6 +166,8 @@ func respawn():
 func _physics_process(delta):
 	
 	check_if_dead()
+	
+	check_if_drifting()
 	
 	turn_car()
 	
