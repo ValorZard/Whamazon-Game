@@ -1,6 +1,7 @@
 extends KinematicBody
 
 signal health_changed(new_health)
+signal bp_changed(new_bp)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -47,6 +48,8 @@ export var drift_max_turn : float = 0.15
 # durability variables
 export var health : int = 100
 export var max_health : int = 100
+export var boiling_point : float = 0
+export var max_boiling_point : float = 100
 
 # extra data stuff
 var spawn_data : Transform
@@ -55,6 +58,7 @@ var spawn_data : Transform
 func _ready():
 	spawn_data = get_global_transform()
 	emit_signal('health_changed', health)
+	emit_signal('bp_changed', boiling_point)
 
 func check_if_drifting():
 	is_drifting = Input.is_action_pressed("drift")
@@ -138,7 +142,7 @@ func update_gravity():
 	else:
 		linear_velocity.y = 0
 
-func update_movement():
+func update_movement(delta):
 	linear_velocity = move_and_slide(linear_velocity)
 	
 	# Check for all collisions
@@ -147,10 +151,18 @@ func update_movement():
 		var collider = collision.collider
 		
 		if collider.is_in_group("Obstacles"):
+			boiling_point += 20
+			if boiling_point > max_boiling_point:
+				boiling_point = max_boiling_point
 			health -= collider.damage
 			collider.health -= 10
 			apply_knockback(70)
 			emit_signal('health_changed', health)
+		else:
+			if boiling_point > 0:
+				boiling_point -= 5*delta
+		emit_signal('bp_changed', boiling_point)
+	
 
 # when hitting an enemy, we want a bit of knockback
 func apply_knockback(strength : int):
@@ -181,7 +193,7 @@ func _physics_process(delta):
 	
 	update_gravity()
 	
-	update_movement()
+	update_movement(delta)
 	
 	#print(self.transform)
 	pass

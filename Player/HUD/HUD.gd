@@ -15,6 +15,7 @@ var timer : float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().connect('health_changed', self, 'update_health')
+	get_parent().connect('bp_changed', self, 'update_bp')
 
 func _process(delta):
 	timer += delta
@@ -25,15 +26,17 @@ func update_speed():
 	needle.rect_rotation = 7.5+(abs(get_parent().horizontal_speed)/30.0*263.0)
 	
 func update_health(updated_health):
-	#health_label.text = "PACKAGE HEALTH:" + str(updated_health)
-	tween.interpolate_property(bp_bar, 'value', bp_bar.value, 100-updated_health, .2)
+	pass
+
+func update_bp(updated_bp):
+	tween.interpolate_property(bp_bar, 'value', bp_bar.value, updated_bp, .2)
 	tween.start()
 	
-	if updated_health > 70:
+	if updated_bp < 30:
 		driver_icon.texture = load("res://Assets/Overlay/portrait1.png")
-	elif updated_health < 70 and updated_health > 30:
+	elif updated_bp > 30 and updated_bp < 70:
 		driver_icon.texture = load("res://Assets/Overlay/portrait2.png")
-	elif updated_health < 30:
+	elif updated_bp > 70:
 		driver_icon.texture = load("res://Assets/Overlay/portrait3.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
