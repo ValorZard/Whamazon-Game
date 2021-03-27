@@ -20,7 +20,9 @@ func _start_pressed():
 	get_tree().paused = false
 	overlay.visible = not overlay.visible
 	get_parent().respawn()
-	
-	
+
+func set_score():
+	$ScoreLabel.text = "Score: " + str(get_parent().health)
+
 func _quit_pressed():
 	get_tree().quit()

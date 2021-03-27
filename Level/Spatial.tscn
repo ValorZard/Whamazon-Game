@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Mesh/SM_Sign_Overhang_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Mesh/SM_GaurdRail_01.fbx" type="PackedScene" id=6]
 [ext_resource path="res://Obstacles/2DObstacle_B.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Obstacles/2DObstacle_C.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Obstacles/2DObstacle_A.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Mesh/SM_Floor_16x16_01.fbx" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Mesh/SM_CrateShelf_01.tscn" type="PackedScene" id=11]
@@ -27,6 +26,7 @@
 [ext_resource path="res://Assets/Mesh/SM_Bridge_Support_01.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Mesh/SM_MiddleBarrier_01.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Mesh/SM_MiddleBarrier_EndCap_01.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Level/End.gd" type="Script" id=28]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.270073, 0.423358, 0.722628, 0.875912, 1 )
@@ -79,6 +79,9 @@ extents = Vector3( 3, 1, 1 )
 [sub_resource type="BoxShape" id=7]
 
 [sub_resource type="BoxShape" id=8]
+extents = Vector3( 100, 10, 1 )
+
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 1, 1, 4 )
 
 [node name="Root" type="Node"]
@@ -1381,9 +1384,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -72.4162 )
 [node name="2DObstacle5" parent="Level" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -6.717 )
 
-[node name="2DObstacle6" parent="Level" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.8876, 4, -144.92 )
-
 [node name="2DObstacle7" parent="Level" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -110.674 )
 
@@ -2130,6 +2130,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0159, -9.53674e-07, -96.990
 [node name="SM_Sign_Overhang_03" parent="Level" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0159, -9.53674e-07, -148.99 )
 
+[node name="End" type="StaticBody" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200 )
+script = ExtResource( 28 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/End"]
+shape = SubResource( 8 )
+
 [node name="Node" type="Node" parent="."]
 
 [node name="SM_Bridge_Base_01" parent="Node" instance=ExtResource( 19 )]
@@ -2194,4 +2201,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -130 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Middle Barrier_01"]
 transform = Transform( 1.6, 0, 0, 0, 1, 0, 0, 0, 17.1, 4, 1, -70 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )

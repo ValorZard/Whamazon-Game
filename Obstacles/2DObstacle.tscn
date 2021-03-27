@@ -7,7 +7,7 @@
 radius = 5.0
 height = 0.1
 
-[node name="2DObstacle" type="StaticBody"]
+[node name="2DObstacle" type="KinematicBody"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

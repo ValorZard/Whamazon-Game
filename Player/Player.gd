@@ -158,6 +158,8 @@ func update_movement(delta):
 			collider.health -= 10
 			apply_knockback(70)
 			emit_signal('health_changed', health)
+		elif collider.is_in_group("End"):
+			win_game()
 		else:
 			if boiling_point > 0:
 				boiling_point -= 5*delta
@@ -179,6 +181,12 @@ func game_over():
 	$HUD.visible = not $HUD.visible
 	get_tree().paused = true
 	$GameOver.visible = not $GameOver.visible
+
+func win_game():
+	$HUD.visible = not $HUD.visible
+	get_tree().paused = true
+	$WinScreen.visible = not $WinScreen.visible
+	$WinScreen.set_score()
 
 
 func respawn():
