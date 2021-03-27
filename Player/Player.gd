@@ -173,11 +173,20 @@ func apply_knockback(strength : int):
 
 func check_if_dead():
 	if health <= 0:
-		respawn()
+		game_over()
+
+func game_over():
+	$HUD.visible = not $HUD.visible
+	get_tree().paused = true
+	$GameOver.visible = not $GameOver.visible
+
 
 func respawn():
 	transform = spawn_data
 	health = max_health
+	boiling_point = 0
+	
+	emit_signal('bp_changed', boiling_point)
 	emit_signal('health_changed', health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

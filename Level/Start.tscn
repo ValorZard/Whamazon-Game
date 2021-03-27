@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Fonts/dogica.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Overlay/transparent_box.png" type="Texture" id=2]
+[ext_resource path="res://Level/Start.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Overlay/greyed_box.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="Start" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreyedBox" type="TextureRect" parent="."]
+margin_left = 111.0
+margin_top = 58.0
+margin_right = 738.0
+margin_bottom = 441.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_left = 162.986
+margin_top = 101.679
+margin_right = 362.986
+margin_bottom = 253.679
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameTitle" type="Label" parent="."]
+margin_left = 381.786
+margin_top = 147.595
+margin_right = 637.786
+margin_bottom = 169.595
+custom_fonts/font = SubResource( 2 )
+text = "Whamazon!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 222.0
+margin_top = 300.0
+margin_right = 478.0
+margin_bottom = 340.0
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 222.0
+margin_top = 350.0
+margin_right = 478.0
+margin_bottom = 390.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Groupname" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -38.0
+margin_right = 276.0
+margin_bottom = -11.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ver 1.0.0
+Burger Snatchers"
+__meta__ = {
+"_edit_use_anchors_": false
+}
