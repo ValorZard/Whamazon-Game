@@ -5,7 +5,7 @@ Game Assets are also licensed under MIT
 
 The theme for this game was "Boiling Point"
 
-
+Proudly made in Godot 3.3 RC 6
 
 This game was made for LCAD's 2021 Hot Jam. It is an absurdist racing game lending light commentary on the harsh demand we and the company put on amazon workers.
 
