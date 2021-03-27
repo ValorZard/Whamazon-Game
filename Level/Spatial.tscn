@@ -142,6 +142,42 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62567, 3.2226, -332.484 )
 [node name="VehicleBody12" parent="Level" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3743, 3.2226, -380.484 )
 
+[node name="VehicleBody16" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 6.02752, 3.2226, -360.924 )
+
+[node name="VehicleBody17" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 33.0275, 3.2226, -334.924 )
+
+[node name="VehicleBody18" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 1.02752, 3.2226, -306.924 )
+
+[node name="VehicleBody19" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 12.0275, 3.2226, -251.924 )
+
+[node name="VehicleBody20" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 34.0275, 3.2226, -263.924 )
+
+[node name="VehicleBody21" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 8.02752, 3.2226, -215.924 )
+
+[node name="VehicleBody22" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 9.02752, 3.2226, -691.924 )
+
+[node name="VehicleBody23" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 33.0275, 3.2226, -666.924 )
+
+[node name="VehicleBody24" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 1.02752, 3.2226, -638.924 )
+
+[node name="VehicleBody25" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 6.02749, 3.2226, -583.924 )
+
+[node name="VehicleBody26" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 34.0275, 3.2226, -595.924 )
+
+[node name="VehicleBody27" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 8.02752, 3.2226, -547.924 )
+
 [node name="VehicleBody13" parent="Level" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62567, 3.2226, -410.484 )
 
@@ -150,6 +186,84 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37433, 3.2226, -466.484 )
 
 [node name="VehicleBody15" parent="Level" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3743, 3.2226, -519.484 )
+
+[node name="VehicleBody28" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3743, 3.2226, -798.484 )
+
+[node name="VehicleBody29" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37433, 3.2226, -817.484 )
+
+[node name="VehicleBody30" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62567, 3.2226, -846.484 )
+
+[node name="VehicleBody31" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3743, 3.2226, -867.484 )
+
+[node name="VehicleBody32" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3743, 3.2226, -916.484 )
+
+[node name="VehicleBody33" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3743, 3.2226, -921.484 )
+
+[node name="VehicleBody34" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62567, 3.2226, -947.484 )
+
+[node name="VehicleBody35" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3743, 3.2226, -975.484 )
+
+[node name="VehicleBody36" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3743, 3.2226, -1030.48 )
+
+[node name="VehicleBody37" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62567, 3.2226, -1018.48 )
+
+[node name="VehicleBody38" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3743, 3.2226, -1066.48 )
+
+[node name="VehicleBody39" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 6.02752, 3.2226, -1046.92 )
+
+[node name="VehicleBody40" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 33.0275, 3.2226, -1020.92 )
+
+[node name="VehicleBody41" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 1.02752, 3.2226, -992.924 )
+
+[node name="VehicleBody42" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 12.0275, 3.2226, -937.924 )
+
+[node name="VehicleBody43" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 34.0275, 3.2226, -949.924 )
+
+[node name="VehicleBody44" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 8.02752, 3.2226, -901.924 )
+
+[node name="VehicleBody45" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 9.02752, 3.2226, -1377.92 )
+
+[node name="VehicleBody46" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 33.0275, 3.2226, -1352.92 )
+
+[node name="VehicleBody47" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 1.02752, 3.2226, -1324.92 )
+
+[node name="VehicleBody48" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 6.02749, 3.2226, -1269.92 )
+
+[node name="VehicleBody49" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 34.0275, 3.2226, -1281.92 )
+
+[node name="VehicleBody50" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 8.02752, 3.2226, -1233.92 )
+
+[node name="VehicleBody51" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62567, 3.2226, -1096.48 )
+
+[node name="VehicleBody52" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37433, 3.2226, -1152.48 )
+
+[node name="VehicleBody53" parent="Level" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3743, 3.2226, -1205.48 )
 
 [node name="Floor" type="StaticBody" parent="Level"]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, -1, 3, -82 )
@@ -8605,6 +8719,111 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -6.717 )
 
 [node name="2DObstacle7" parent="Level" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -110.674 )
+
+[node name="2DObstacle6" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -388.414 )
+
+[node name="2DObstacle8" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.417, 2, -196.911 )
+
+[node name="2DObstacle9" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -451.272 )
+
+[node name="2DObstacle10" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -328.416 )
+
+[node name="2DObstacle11" parent="Level" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -262.717 )
+
+[node name="2DObstacle12" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -366.674 )
+
+[node name="2DObstacle13" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -599.414 )
+
+[node name="2DObstacle14" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.417, 2, -466.911 )
+
+[node name="2DObstacle15" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -662.272 )
+
+[node name="2DObstacle16" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -539.416 )
+
+[node name="2DObstacle17" parent="Level" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -473.717 )
+
+[node name="2DObstacle18" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -577.674 )
+
+[node name="2DObstacle19" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -765.414 )
+
+[node name="2DObstacle20" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.417, 2, -573.911 )
+
+[node name="2DObstacle21" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -828.272 )
+
+[node name="2DObstacle22" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -705.416 )
+
+[node name="2DObstacle23" parent="Level" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -639.717 )
+
+[node name="2DObstacle24" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -743.674 )
+
+[node name="2DObstacle25" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -1021.41 )
+
+[node name="2DObstacle26" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.417, 2, -829.911 )
+
+[node name="2DObstacle27" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -1084.27 )
+
+[node name="2DObstacle28" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -961.416 )
+
+[node name="2DObstacle29" parent="Level" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -895.717 )
+
+[node name="2DObstacle30" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -999.674 )
+
+[node name="2DObstacle31" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -1232.41 )
+
+[node name="2DObstacle32" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.417, 2, -1099.91 )
+
+[node name="2DObstacle33" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -1295.27 )
+
+[node name="2DObstacle34" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -1172.42 )
+
+[node name="2DObstacle37" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -1234.67 )
+
+[node name="2DObstacle38" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.12, 2, -1467.41 )
+
+[node name="2DObstacle39" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.417, 2, -1334.91 )
+
+[node name="2DObstacle40" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 2, -1530.27 )
+
+[node name="2DObstacle41" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.804, 2, -1407.42 )
+
+[node name="2DObstacle35" parent="Level" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.285, 2, -1106.72 )
+
+[node name="2DObstacle36" parent="Level" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -1210.67 )
 
 [node name="ParkingLot" type="Node" parent="Level"]
 
