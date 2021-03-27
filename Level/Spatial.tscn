@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Mesh/SM_Sign_Overhang_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Obstacles/2DObstacle.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Assets/Mesh/SM_Bridge_01.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/Mesh/SM_Bridge_Support_01.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Mesh/SM_MiddleBarrier_01.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/Mesh/SM_MiddleBarrier_EndCap_01.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.270073, 0.423358, 0.722628, 0.875912, 1 )
@@ -52,7 +53,22 @@ tonemap_mode = 3
 tonemap_exposure = 0.48
 tonemap_white = 0.51
 auto_exposure_enabled = true
-auto_exposure_speed = 29.83
+auto_exposure_speed = 46.38
+ssao_enabled = true
+ssao_intensity = 2.77
+ssao_radius2 = 0.18
+ssao_intensity2 = 49.5
+ssao_bias = 0.041
+ssao_ao_channel_affect = 0.45
+ssao_color = Color( 0.254902, 0.2, 0.572549, 1 )
+ssao_quality = 2
+ssao_edge_sharpness = 2.47
+glow_enabled = true
+glow_intensity = 0.73
+glow_strength = 1.45
+glow_hdr_scale = 2.07
+adjustment_contrast = 1.07
+adjustment_saturation = 5.55
 adjustment_color_correction = SubResource( 2 )
 
 [sub_resource type="BoxShape" id=5]
@@ -61,6 +77,9 @@ extents = Vector3( 3, 1, 1 )
 [sub_resource type="BoxShape" id=6]
 
 [sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1, 1, 4 )
 
 [node name="Root" type="Node"]
 script = ExtResource( 23 )
@@ -1368,23 +1387,187 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.8876, 4, -144.92 )
 [node name="2DObstacle7" parent="Level" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.068, 6, -110.674 )
 
-[node name="SM_Car_Amazon_01" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -4 )
+[node name="ParkingLot" type="Node" parent="Level"]
 
-[node name="SM_Car_Amazon_02" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -7 )
+[node name="SM_Car_Amazon_01" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -4.00953 )
 
-[node name="SM_Car_Amazon_03" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -10 )
+[node name="SM_Car_Amazon_02" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -7.00953 )
 
-[node name="SM_Car_Amazon_04" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -13 )
+[node name="SM_Car_Amazon_03" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -10.0095 )
 
-[node name="SM_Car_Amazon_05" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.67407, -16 )
+[node name="SM_Car_Amazon_04" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -13.0095 )
 
-[node name="SM_Car_Amazon_06" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15, 0, 0 )
+[node name="SM_Car_Amazon_05" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -16.0095 )
+
+[node name="SM_Car_Amazon_06" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -4.00953 )
+
+[node name="SM_Car_Amazon_07" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -7.00953 )
+
+[node name="SM_Car_Amazon_08" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -10.0095 )
+
+[node name="SM_Car_Amazon_09" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -13.0095 )
+
+[node name="SM_Car_Amazon_10" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -16.0095 )
+
+[node name="SM_Car_Amazon_11" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -16.0095 )
+
+[node name="SM_Car_Amazon_12" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -13.0095 )
+
+[node name="SM_Car_Amazon_13" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -10.0095 )
+
+[node name="SM_Car_Amazon_14" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -7.00953 )
+
+[node name="SM_Car_Amazon_15" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -4.00953 )
+
+[node name="SM_Car_Amazon_16" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_17" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_18" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_19" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_20" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9841, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_21" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_22" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_23" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_24" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_25" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.9841, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_26" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_27" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_28" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_29" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_30" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 32.9841, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_31" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_32" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_33" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_34" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_35" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_36" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_37" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_38" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_39" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_40" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_41" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -28.0095 )
+
+[node name="SM_Car_Amazon_42" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -31.0095 )
+
+[node name="SM_Car_Amazon_43" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -34.0095 )
+
+[node name="SM_Car_Amazon_44" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -37.0095 )
+
+[node name="SM_Car_Amazon_45" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -40.0095 )
+
+[node name="SM_Car_Amazon_46" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -16.0095 )
+
+[node name="SM_Car_Amazon_47" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -13.0095 )
+
+[node name="SM_Car_Amazon_48" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -10.0095 )
+
+[node name="SM_Car_Amazon_49" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -7.00952 )
+
+[node name="SM_Car_Amazon_50" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -7.01589, 1.67407, -4.00952 )
+
+[node name="SM_Car_Amazon_51" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -16.0095 )
+
+[node name="SM_Car_Amazon_52" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -13.0095 )
+
+[node name="SM_Car_Amazon_53" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -10.0095 )
+
+[node name="SM_Car_Amazon_54" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -7.00953 )
+
+[node name="SM_Car_Amazon_55" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -33.0159, 1.67407, -4.00953 )
+
+[node name="SM_Car_Amazon_56" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -4.00953 )
+
+[node name="SM_Car_Amazon_57" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -7.00953 )
+
+[node name="SM_Car_Amazon_58" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -10.0095 )
+
+[node name="SM_Car_Amazon_59" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -13.0095 )
+
+[node name="SM_Car_Amazon_60" parent="Level/ParkingLot" instance=ExtResource( 3 )]
+transform = Transform( -5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -25.0159, 1.67407, -16.0095 )
 
 [node name="Warehouse Crates" type="Node" parent="Level"]
 
@@ -1717,226 +1900,226 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 42 )
 transform = Transform( 43.2432, 0, 0, 0, 1.03488, 0, 0, 0, 30.3, 3, 1, 28 )
 shape = SubResource( 7 )
 
-[node name="Warehouse WallsCieling" type="Node" parent="Level"]
+[node name="Warehouse WallsCielingPipes" type="Node" parent="Level"]
 
-[node name="SM_Warehouse_Open_01" parent="Level/Warehouse WallsCieling" instance=ExtResource( 12 )]
+[node name="SM_Warehouse_Open_01" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 3 )
 
-[node name="SM_Warehouse_Close_02" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_02" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 3 )
 
-[node name="SM_Warehouse_Close_03" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_03" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 3 )
 
-[node name="SM_Warehouse_Close_04" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_04" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2, 3 )
 
-[node name="SM_Warehouse_Close_05" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_05" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 2, 3 )
 
-[node name="SM_Warehouse_Close_06" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_06" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 2, 3 )
 
-[node name="SM_Warehouse_Close_07" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_07" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 3 )
 
-[node name="SM_Warehouse_Close_08" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_08" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 3 )
 
-[node name="SM_Warehouse_Close_09" parent="Level/Warehouse WallsCieling" instance=ExtResource( 14 )]
+[node name="SM_Warehouse_Close_09" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 3 )
 
-[node name="SM_Warehouse_Wall_01" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_01" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 8 )
 
-[node name="SM_Warehouse_Wall_02" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_02" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 18 )
 
-[node name="SM_Warehouse_Wall_03" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_03" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 28 )
 
-[node name="SM_Warehouse_Wall_04" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_04" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 2, 38 )
 
-[node name="SM_Warehouse_Wall_09" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_09" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33, 2, 35 )
 
-[node name="SM_Warehouse_Wall_10" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_10" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23, 2, 35 )
 
-[node name="SM_Warehouse_Wall_11" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_11" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 2, 35 )
 
-[node name="SM_Warehouse_Wall_12" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_12" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 2, 35 )
 
-[node name="SM_Warehouse_Wall_13" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_13" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 2, 35 )
 
-[node name="SM_Warehouse_Wall_14" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_14" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 2, 35 )
 
-[node name="SM_Warehouse_Wall_15" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_15" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 27, 2, 35 )
 
-[node name="SM_Warehouse_Wall_16" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_16" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 37, 2, 35 )
 
-[node name="SM_Warehouse_Wall_17" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_17" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 47, 2, 35 )
 
-[node name="SM_Warehouse_Wall_05" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_05" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 32 )
 
-[node name="SM_Warehouse_Wall_06" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_06" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 22 )
 
-[node name="SM_Warehouse_Wall_07" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_07" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 12 )
 
-[node name="SM_Warehouse_Wall_08" parent="Level/Warehouse WallsCieling" instance=ExtResource( 17 )]
+[node name="SM_Warehouse_Wall_08" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 17 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 45, 1, 2 )
 
-[node name="SM_Warehouse_Cieling_01" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_01" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_02" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_02" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_07" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_07" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_08" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_08" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_03" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_03" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_05" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_05" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_04" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_04" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_09" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_09" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_10" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_10" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2, 11 )
 
-[node name="SM_Warehouse_Cieling_06" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_06" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_11" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_11" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_12" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_12" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_13" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_13" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_14" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_14" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_15" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_15" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_16" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_16" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_17" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_17" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_18" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_18" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2, 19 )
 
-[node name="SM_Warehouse_Cieling_19" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_19" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_20" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_20" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_21" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_21" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_22" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_22" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_23" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_23" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_24" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_24" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_25" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_25" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_26" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_26" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_27" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_27" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2, 27 )
 
-[node name="SM_Warehouse_Cieling_28" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_28" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_29" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_29" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_30" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_30" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_31" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_31" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_32" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_32" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_33" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_33" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_34" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_34" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_35" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_35" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, 35 )
 
-[node name="SM_Warehouse_Cieling_36" parent="Level/Warehouse WallsCieling" instance=ExtResource( 15 )]
+[node name="SM_Warehouse_Cieling_36" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2, 35 )
 
-[node name="SM_Pipes_01" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23207, 6.1865, 0.904418 )
+[node name="SM_Pipes_01" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21618, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_02" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23207, 6.1865, 0.904418 )
+[node name="SM_Pipes_02" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21618, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_08" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76793, 6.1865, 0.904418 )
+[node name="SM_Pipes_08" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78382, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_09" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7679, 6.1865, 0.904418 )
+[node name="SM_Pipes_09" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7838, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_11" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.672, 6.1865, 1.35606 )
+[node name="SM_Pipes_11" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6879, 6.1865, 1.34653 )
 
-[node name="SM_Pipes_10" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7679, 6.1865, 0.904418 )
+[node name="SM_Pipes_10" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7838, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_03" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2321, 6.1865, 0.904418 )
+[node name="SM_Pipes_03" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2162, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_07" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3404, 6.1865, 1.51663 )
+[node name="SM_Pipes_07" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3245, 6.1865, 1.5071 )
 
-[node name="SM_Pipes_04" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2321, 6.1865, 0.904418 )
+[node name="SM_Pipes_04" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2162, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_05" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2321, 6.1865, 0.904418 )
+[node name="SM_Pipes_05" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, 6.1865, 0.894887 )
 
-[node name="SM_Pipes_06" parent="Level" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2321, 6.1865, 0.904418 )
+[node name="SM_Pipes_06" parent="Level/Warehouse WallsCielingPipes" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2162, 6.1865, 0.894887 )
 
 [node name="SM_Sign_Overhang_01" parent="Level" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0159, -9.53674e-07, -58.9905 )
@@ -1947,41 +2130,68 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0159, -9.53674e-07, -96.990
 [node name="SM_Sign_Overhang_03" parent="Level" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0159, -9.53674e-07, -148.99 )
 
-[node name="SM_Bridge_Base_01" parent="." instance=ExtResource( 19 )]
+[node name="Node" type="Node" parent="."]
+
+[node name="SM_Bridge_Base_01" parent="Node" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 20, -1, -92 )
 
-[node name="SM_Bridge_Base_02" parent="." instance=ExtResource( 19 )]
+[node name="SM_Bridge_Base_02" parent="Node" instance=ExtResource( 19 )]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -20, -1, -116 )
 
-[node name="SM_Bridge_01" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_01" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, -104 )
 
-[node name="SM_Bridge_05" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_05" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 5, -104 )
 
-[node name="SM_Bridge_02" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_02" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, -104 )
 
-[node name="SM_Bridge_03" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_03" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 5, -104 )
 
-[node name="SM_Bridge_06" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_06" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 5, -104 )
 
-[node name="SM_Bridge_04" parent="." instance=ExtResource( 24 )]
+[node name="SM_Bridge_04" parent="Node" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 5, -104 )
 
-[node name="SM_Bridge_Support_01" parent="." instance=ExtResource( 25 )]
+[node name="SM_Bridge_Support_01" parent="Node" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -1, -104 )
 
-[node name="SM_Bridge_Support_02" parent="." instance=ExtResource( 25 )]
+[node name="SM_Bridge_Support_02" parent="Node" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, -106 )
 
-[node name="SM_Bridge_Support_03" parent="." instance=ExtResource( 25 )]
+[node name="SM_Bridge_Support_03" parent="Node" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -1, -106 )
 
-[node name="SM_MiddleBarrier_01" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -106 )
+[node name="Middle Barrier_01" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
 
-[node name="SM_MiddleBarrier_02" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -106 )
+[node name="SM_MiddleBarrier_EndCap_01" parent="Middle Barrier_01" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.75, -137 )
+
+[node name="SM_MiddleBarrier_EndCap_02" parent="Middle Barrier_01" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.75, -137 )
+
+[node name="SM_MiddleBarrier_EndCap_03" parent="Middle Barrier_01" instance=ExtResource( 27 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 5, 0.75, -3.00002 )
+
+[node name="SM_MiddleBarrier_EndCap_04" parent="Middle Barrier_01" instance=ExtResource( 27 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 3, 0.75, -3.00002 )
+
+[node name="SM_MiddleBarrier_01" parent="Middle Barrier_01" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -70 )
+
+[node name="SM_MiddleBarrier_02" parent="Middle Barrier_01" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -70 )
+
+[node name="SM_MiddleBarrier_03" parent="Middle Barrier_01" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -130 )
+
+[node name="SM_MiddleBarrier_04" parent="Middle Barrier_01" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -130 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Middle Barrier_01"]
+transform = Transform( 1.6, 0, 0, 0, 1, 0, 0, 0, 17.1, 4, 1, -70 )
+shape = SubResource( 8 )
