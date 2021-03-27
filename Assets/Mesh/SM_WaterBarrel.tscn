@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Materials/M_Grey_04.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Materials/M_Grey_01.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Materials/M_Orange_01.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Materials/M_Orange_02.tres" type="Material" id=4]
+[ext_resource path="res://Assets/Mesh/SM_WaterBarrel.fbx" type="PackedScene" id=5]
+
+[node name="SM_WaterBarrel" instance=ExtResource( 5 )]
+
+[node name="SM_WaterBarrel" parent="RootNode" index="0"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 2 )
+material/3 = ExtResource( 1 )
