@@ -18,11 +18,11 @@ func _ready():
 
 func _process(delta):
 	timer += delta
-	timer_label.set_text(("%02d" % floor(timer / 60)) + ":" + ("%2.2f" % timer).pad_zeros(2))
+	timer_label.set_text(("%02d" % floor(timer / 60)) + ":" + ("%2.2f" % fmod(timer, 60.0)).pad_zeros(2))
 
 func update_speed():
 	speed_label.text = "SPEED:" + str(-(get_parent().horizontal_speed))
-	needle.rect_rotation = abs(get_parent().horizontal_speed)/30.0*280.0
+	needle.rect_rotation = 7.5+(abs(get_parent().horizontal_speed)/30.0*263.0)
 	
 func update_health(updated_health):
 	#health_label.text = "PACKAGE HEALTH:" + str(updated_health)
