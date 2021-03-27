@@ -20,6 +20,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, -1, -2 )
 engine_force = 50.0
 use_as_traction = true
+use_as_steering = true
 
 [node name="VehicleWheel2" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, -1, 2 )
@@ -30,6 +31,7 @@ use_as_traction = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -1, -2 )
 engine_force = 50.0
 use_as_traction = true
+use_as_steering = true
 
 [node name="VehicleWheel4" type="VehicleWheel" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -1, 2 )
