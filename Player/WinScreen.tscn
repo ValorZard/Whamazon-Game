@@ -73,22 +73,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -15.0
-margin_right = 300.0
-margin_bottom = 15.0
+margin_left = -357.0
+margin_top = -16.0
+margin_right = 363.0
+margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
-text = "\"You Won!\""
+text = "Package Delivered!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -299.0
-margin_top = 23.0
-margin_right = 301.0
-margin_bottom = 53.0
+margin_left = -295.0
+margin_top = 26.0
+margin_right = 305.0
+margin_bottom = 56.0
 custom_fonts/font = SubResource( 2 )
 text = "Score : o"
 

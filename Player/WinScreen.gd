@@ -22,7 +22,7 @@ func _start_pressed():
 	get_parent().respawn()
 
 func set_score():
-	$ScoreLabel.text = "Score: " + str(get_parent().health)
+	$ScoreLabel.text = "Score: " + str(overlay.timer - get_parent().health + get_parent().max_health)
 
 func _quit_pressed():
 	get_tree().quit()

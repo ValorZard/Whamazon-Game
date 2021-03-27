@@ -103,14 +103,16 @@ func drive_car():
 	var decel : float = 0
 	var max_speed : float = 0
 	
+	var bp_percent : float = (1 + boiling_point / max_boiling_point)
+	
 	if(is_drifting):
-		accel = drift_linear_accel
+		accel = drift_linear_accel * bp_percent
 		decel = drift_linear_decel
-		max_speed = drift_max_horizontal_speed
+		max_speed = drift_max_horizontal_speed * bp_percent
 	else:
-		accel = linear_accel
+		accel = linear_accel * bp_percent 
 		decel = linear_decel
-		max_speed = max_horizontal_speed
+		max_speed = max_horizontal_speed * bp_percent
 	
 	# if is driving
 	if (Input.is_action_pressed("player_forward") or Input.is_action_pressed("player_back")):
@@ -157,6 +159,13 @@ func update_movement(delta):
 			health -= collider.damage
 			collider.health -= 10
 			apply_knockback(70)
+			emit_signal('health_changed', health)
+		elif collider.is_in_group("AICar"):
+			boiling_point += 20
+			if boiling_point > max_boiling_point:
+				boiling_point = max_boiling_point
+			health -= collider.damage
+			collider.health -= 10
 			emit_signal('health_changed', health)
 		elif collider.is_in_group("End"):
 			win_game()
